@@ -5,7 +5,10 @@
     >
       <h1 class="uppercase text-3xl">Quiz</h1>
       <h2 class="text-3xl text-center">What type of developer are you?</h2>
-      <button class="w-32 h-7 border border-solid border-black rounded-xl">
+      <button
+        class="w-32 h-7 border border-solid border-black rounded-xl"
+        @click="goToQuestion"
+      >
         Start
       </button>
     </div>
@@ -15,6 +18,11 @@
 <script>
 export default {
   name: "Home",
+  methods: {
+    goToQuestion() {
+      this.$router.push("/questionscreen");
+    },
+  },
 };
 </script>
 
