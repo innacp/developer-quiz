@@ -7,7 +7,7 @@
       <h2 class="text-3xl text-center">What type of developer are you?</h2>
       <button
         class="w-32 h-7 border border-solid border-black rounded-xl"
-        @click="goToQuestion"
+        @click="goToQuestion()"
       >
         Start
       </button>
@@ -16,8 +16,15 @@
 </template>
 
 <script>
+import { mapActions, mapState } from "pinia";
+import { useQuizStore } from "../stores/useQuiz";
+
 export default {
   name: "Home",
+  computed: {
+    ...mapState(useQuizStore, ["questionArray", "questionIndex"]),
+  },
+
   methods: {
     goToQuestion() {
       this.$router.push("/questionscreen");
